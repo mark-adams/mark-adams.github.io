@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/kramsmada
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://markadams.me
+  * I am kramsmada (https://keybase.io/kramsmada) on keybase.
+  * I have a public key with fingerprint A18A 7DD3 283C CF2A B0CE  FE0E C7A0 5E3F C972 098C
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "a18a7dd3283ccf2ab0cefe0ec7a05e3fc972098c",
+            "host": "keybase.io",
+            "key_id": "c7a05e3fc972098c",
+            "uid": "4d9d4a9ebb0081136aa58cd2404d4a00",
+            "username": "kramsmada"
+        },
+        "revoke": {
+            "sig_ids": [
+                "b6e8beffbecfe308d03c6f70a42eb2838a104282f9f6585f30c84964cf563e2c0f"
+            ]
+        },
+        "service": {
+            "hostname": "markadams.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1414373030,
+    "expire_in": 157680000,
+    "prev": "61ca1d80385a0119a048c15471ad395be09008ec0ec14636d66c178c0b2c6905",
+    "seqno": 12,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFtkmtIFUEUx+/VHmgFhgoFQjUFRV1l9j27JHkJ6WkERVCmMjs7q5ve3dvu9Wak
+fbAHZRAVZaRpkVJJ2gczeqBSJIGpYAYZFRJYQpTZlx5WVLNi35ovw5zzn9//nDNz
+al5iICG4/QW+0NNxUQz2vdcD2/MabxwAumPsB9oBUEqnNtOyi6kbdS07BjSAOYQV
+wxB4JBBi8liHhJoUUqJgKFHBJKrCQxUREAIljuffYBgdezTLcliMHYosg0X/oy+f
+SoiGaohYpboOIeI4QcZYQsTgRSiyOIS+0KOujSPUh7s44kWwgUFVCLg07pRSv2bP
+KmY2HtDygS5TpFPT1CkxqQCRAQUimwrEIk911gXCHBR5xJuqKUtIMgVIkKjKIjEl
+WaA8gSYoYGxmGbfIFNzva9o+gt1SZh7xstgxBKKuE3OIU8YyJbFYVPOLiu2P+sp9
+VC+aZhTplm2wobILcep6lmMDjWNKErN8KCdyoqAIUIAhQCuilkuLLF8hKTKCbPk2
+NM6QMkcwZyAoIAlDjlMxFBHhJFHhsCGokk6hykZICXscTpQF2ZBlwimIQJ0nsgol
+4He113YYm2d14pRiBmWTs3Gs3KWgKvl4MGNGIJgQmDUzwf8ZgeSklH/fpWXR7N+r
+Pu3sGhtJG+jvGV+4oXxw4tzl3qUpW9rU3BOJtd7EPdjR1tozmrc4fV18oqH6W3ZG
+659nqdrhld05j0fLK0jbrmvpndHxxupfO4/dORu6+aG//szXhIrlh053rn5TOnn+
+a+Gr+SNrMx987zMeNQ/HwORkfmT0ajj1rYiK56zoD7bsiL6NFO7YlG4rJ19f2VNf
+1nvwbtLgk5rbWzMCd95FKluvr7m/7Htg1u2an9tKGtrLjuav1np/1y1pXvjmc+3c
+9OGnTV0vm55nhnO/CMmQ7A5XpT0Md2vthXNyLg2dGO44ODK2YP0Yt7GyLly4p+lV
+9UDBLc1OGQr+2vzjSPY79f3HOvcv
+=B9VB
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kramsmada
+
+==================================================================
+
+
