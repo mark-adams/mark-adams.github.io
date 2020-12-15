@@ -402,5 +402,5 @@ The fix is actually pretty straightforward. The same validation logic is duplica
 
 Thanks for taking the time to walkthrough this vulnerability with me and construct a working proof-of-concept. If you'd like to see the whole thing, you can view it on GitHub here:
 
-https://github.com/mark-adams/exploits/tree/master/CVE-2020-9283
+[https://github.com/mark-adams/exploits/tree/master/CVE-2020-9283](https://github.com/mark-adams/exploits/tree/master/CVE-2020-9283)
 
