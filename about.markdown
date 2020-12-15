@@ -4,15 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+👋 I'm Mark! By either destiny or chance, you've stumbled upon my blog. This is where I'll write about a variety of topics but most often you'll probably see posts related to information security or software development.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+A little background on me for those who are interested. I grew up in cornfields of rural Illinois and moved to Texas during my college years. I've worked a couple different jobs over the years mostly centered around software engineering and eventually cybersecurity. Now, I lead a team of security engineers working on securing team collaboration software at Atlassian.
